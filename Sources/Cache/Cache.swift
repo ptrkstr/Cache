@@ -4,6 +4,8 @@ import Foundation
 public final class Cache<Key: Hashable, Value> {
     private let wrapped = NSCache<WrappedKey, Entry>()
 
+    public init() {}
+    
     public func insert(_ value: Value, forKey key: Key) {
         let entry = Entry(value: value)
         wrapped.setObject(entry, forKey: WrappedKey(key))
